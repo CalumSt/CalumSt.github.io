@@ -31,7 +31,6 @@ body {
     z-index: 1;
     background: #000000;
     writing-mode: sideways-lr;
-    padding: 1em;
     transition: 0.1s;
     color: #ffffff;
 }
@@ -40,12 +39,14 @@ body {
 .main {
     display: flex;
     flex-direction: row;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1em;
-}
-
-.header {
     padding: 1em;
 }
 
