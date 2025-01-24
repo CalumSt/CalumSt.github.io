@@ -17,21 +17,24 @@ body {
     color: black;
 }
 
+.content {
+    font-family: "Didact Gothic Regular";
+    color: black;
+    background-color: white;
+    float: left;
+    height: 100%;
+    width: 80%;
+}
+
 .side {
     font-family: "Didact Gothic Regular";
     color: white;
     background-color: black;
     float: right;
     z-index: 1;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    height: 100%;
     width: 20%;
     writing-mode: sideways-lr;
-}
-
-.info {
-    font-family: "Didact Gothic Regular";
 }
 
 .main {
