@@ -18,6 +18,10 @@ body {
     color: black;
 }
 
+* {
+    box-sizing: border-box;
+  }
+
 #main {
     display: flex;
     flex: 1;
