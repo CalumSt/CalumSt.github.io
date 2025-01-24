@@ -1,84 +1,33 @@
-<<<<<<< HEAD
-/* fonts */
-@font-face {
-=======
-p {
-    color: red;
+  @font-face {
+      font-family: "Didact Gothic Regular";
+      src: url('../fonts/didact_gothic/DidactGothic-Regular.ttf');
   }
 
   @font-face {
->>>>>>> parent of e518d99 (Attempt at responsive layout)
-    font-family: "Didact Gothic Regular";
-    src: url('../fonts/didact_gothic/DidactGothic-Regular.ttf');
-  }
-
-<<<<<<< HEAD
-@font-face {
-@font-face {
-    font-family: "Space Mono Regular";
-    src: url('../fonts/space_mono/SpaceMono-Regular.ttf');
-}
-}
-
-h1 {
-h1 {
-    text-transform: uppercase;
-}
-}
-=======
-  @font-face {
-    font-family: "Space Mono Regular";
-    src: url('../fonts/space_mono/SpaceMono-Regular.ttf');
+      font-family: "Space Mono Regular";
+      src: url('../fonts/space_mono/SpaceMono-Regular.ttf');
   }
 
   h1 {
-    text-transform: uppercase;
+      text-transform: uppercase;
   }
->>>>>>> parent of e518d99 (Attempt at responsive layout)
 
   body {
-    font-family: "Didact Gothic Regular";
-<<<<<<< HEAD
-    color: black;
-    margin: 0;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-nav {
-    background: #000000;
-    height: 100%;
-    width: 10%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 90%;
-    overflow-x: hidden;
-    writing-mode: sideways-lr;
-}
-
-nav.body {
-    font-family: "Didact Gothic Regular";
-    color: rgb(254, 254, 254);
-}
-
-#main {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-}
-
-#main>article {
-    flex: 1;
-    order: 2;
-}
-
-#main>aside {
-    flex: 0 0 20vw;
-    order: 1;
-}
-=======
+      font-family: "Didact Gothic Regular";
+      color: black;
   }
->>>>>>> parent of e518d99 (Attempt at responsive layout)
+
+  nav {
+    font-family: "Didact Gothic Regular";
+    color: white;
+    background-color: black;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    writing-mode: vertical-lr;
+  }
