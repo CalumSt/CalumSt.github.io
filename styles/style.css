@@ -5,12 +5,16 @@
 }
 
 @font-face {
+@font-face {
     font-family: "Space Mono Regular";
     src: url('../fonts/space_mono/SpaceMono-Regular.ttf');
 }
+}
 
 h1 {
+h1 {
     text-transform: uppercase;
+}
 }
 
 body {
