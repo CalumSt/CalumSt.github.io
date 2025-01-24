@@ -1,23 +1,23 @@
-  @font-face {
-      font-family: "Didact Gothic Regular";
-      src: url('../fonts/didact_gothic/DidactGothic-Regular.ttf');
-  }
+@font-face {
+    font-family: "Didact Gothic Regular";
+    src: url('../fonts/didact_gothic/DidactGothic-Regular.ttf');
+}
 
-  @font-face {
-      font-family: "Space Mono Regular";
-      src: url('../fonts/space_mono/SpaceMono-Regular.ttf');
-  }
+@font-face {
+    font-family: "Space Mono Regular";
+    src: url('../fonts/space_mono/SpaceMono-Regular.ttf');
+}
 
-  h1 {
-      text-transform: uppercase;
-  }
+h1 {
+    text-transform: uppercase;
+}
 
-  body {
-      font-family: "Didact Gothic Regular";
-      color: black;
-  }
+body {
+    font-family: "Didact Gothic Regular";
+    color: black;
+}
 
-  .side {
+.side {
     font-family: "Didact Gothic Regular";
     color: white;
     background-color: black;
@@ -26,5 +26,14 @@
     right: 0;
     top: 0;
     bottom: 0;
-    writing-mode: vertical-lr;
-  }
+    width: 20%;
+    writing-mode: sideways-lr;
+}
+
+.info {
+    font-family: "Didact Gothic Regular";
+}
+
+.main {
+    display: flex;
+}
