@@ -18,6 +18,11 @@ body {
     color: black;
 }
 
+.navigation.column.body {
+    font-family: "Didact Gothic Regular";
+    color: rgb(254, 254, 254);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -28,16 +33,22 @@ body {
     flex-direction: row;
     margin: 0;
 }
+
+/* Create main flex */
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
 /* create side panel for navigation */
 .navigation.column {
     background: #000000;
-    flex: 1;
+    writing-mode: sideways-lr;
+    flex: 0 0 200px;
+    padding: 1em;
 }
-
 .main.column {
     display: flex;
     flex-direction: column;
-    flex: 5;
 }
 
 .content {
@@ -45,36 +56,11 @@ body {
     flex-direction: row;
 }
 
-/* Create two equal columns that floats next to each other */
-.column {
-    float: left;
-    width: 40%;
-}
-
-/* Clear floats after the columns */
-.row::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width:600px) {
-    .column {
-        width: 80%;
-    }
-}
-
 .content>article {
     flex: 4;
     min-height: 60vh;
 }
 
-header {
-    height: 20vh;
-}
-
-header,
 article,
 nav {
     padding: 1em;
