@@ -37,6 +37,11 @@ body {
     writing-mode: sideways-lr;
 }
 
+.projects {
+    justify-content: center;
+    align-items: center;
+}
+
 .main {
     display: flex;
 }
