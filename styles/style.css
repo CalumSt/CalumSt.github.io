@@ -1,5 +1,4 @@
 /* fonts */
-
 @font-face {
     font-family: "Didact Gothic Regular";
     src: url('../fonts/didact_gothic/DidactGothic-Regular.ttf');
@@ -16,21 +15,40 @@ h1 {
 
 body {
     font-family: "Didact Gothic Regular";
+    color: black;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: row;
+    margin: 0;
+}
+/* create side panel for navigation */
+.navigation.column {
+    background: #000000;
+    flex: 1;
+}
+
+.main.column {
+    display: flex;
+    flex-direction: column;
+    flex: 5;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
 
 /* Create two equal columns that floats next to each other */
 .column {
     float: left;
     width: 40%;
-    padding: 15px;
-}
-
-/* create side panel for navigation */
-.side {
-    float: right;
-    width: 20%;
-    padding: 15px;
 }
 
 /* Clear floats after the columns */
@@ -45,4 +63,19 @@ body {
     .column {
         width: 80%;
     }
+}
+
+.content>article {
+    flex: 4;
+    min-height: 60vh;
+}
+
+header {
+    height: 20vh;
+}
+
+header,
+article,
+nav {
+    padding: 1em;
 }
