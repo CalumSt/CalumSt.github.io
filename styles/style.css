@@ -34,34 +34,22 @@ body {
     margin: 0;
 }
 
-/* Create main flex */
-.flex-container {
-    display: flex;
-    flex-direction: row;
-}
 /* create side panel for navigation */
-.navigation.column {
+.navigation {
+    height:fit-content;
+    width: 20%;
+    z-index: 1;
+    top: 0;
+    left: 0;
     background: #000000;
     writing-mode: sideways-lr;
-    flex: 0 0 200px;
     padding: 1em;
-}
-.main.column {
-    display: flex;
-    flex-direction: column;
+    transition: 0.1s;
+    color: #ffffff;
 }
 
-.content {
+/* create main panel */
+.main {
     display: flex;
     flex-direction: row;
-}
-
-.content>article {
-    flex: 4;
-    min-height: 60vh;
-}
-
-article,
-nav {
-    padding: 1em;
 }
