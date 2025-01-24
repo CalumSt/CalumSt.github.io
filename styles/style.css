@@ -18,11 +18,6 @@ body {
     color: black;
 }
 
-.navigation.column.body {
-    font-family: "Didact Gothic Regular";
-    color: rgb(254, 254, 254);
-}
-
 #main {
     display: flex;
     flex: 1;
@@ -43,12 +38,11 @@ body {
     order: 3;
 }
 
-#main>aside {
-    order: 1;
+#main>nav.body {
+    font-family: "Didact Gothic Regular";
+    color: rgb(254, 254, 254);
 }
 
-article,
-nav,
-aside {
-    padding: 1em;
+#main>aside {
+    order: 1;
 }
