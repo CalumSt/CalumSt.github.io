@@ -1,21 +1,48 @@
-p {
-    color: red;
-  }
+/* fonts */
 
-  @font-face {
+@font-face {
     font-family: "Didact Gothic Regular";
     src: url('../fonts/didact_gothic/DidactGothic-Regular.ttf');
-  }
+}
 
-  @font-face {
+@font-face {
     font-family: "Space Mono Regular";
     src: url('../fonts/space_mono/SpaceMono-Regular.ttf');
-  }
+}
 
-  h1 {
+h1 {
     text-transform: uppercase;
-  }
+}
 
-  body {
+body {
     font-family: "Didact Gothic Regular";
-  }
+}
+
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 40%;
+    padding: 15px;
+}
+
+/* create side panel for navigation */
+.side {
+    float: right;
+    width: 20%;
+    padding: 15px;
+}
+
+/* Clear floats after the columns */
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+    .column {
+        width: 80%;
+    }
+}
