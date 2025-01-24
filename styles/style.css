@@ -26,25 +26,29 @@ body {
 #main {
     display: flex;
     flex: 1;
-  }
-  #main > article {
+}
+
+#main>article {
     flex: 1;
-    order: 1;
-  }
-  #main > nav, 
-  #main > aside {
+    order: 2;
+}
+
+#main>nav,
+#main>aside {
     flex: 0 0 20vw;
-  }
-  #main > nav {
+}
+
+#main>nav {
     background: #000000;
     order: 3;
-  }
-  #main > aside {
-    order: 2;
-  }
-  header, footer {
-    height: 20vh;
-  }
-  header, footer, article, nav, aside {
+}
+
+#main>aside {
+    order: 1;
+}
+
+article,
+nav,
+aside {
     padding: 1em;
-  }
+}
