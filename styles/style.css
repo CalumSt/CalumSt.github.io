@@ -42,7 +42,7 @@ nav.body {
 
 #main {
     display: flex;
-    flex: 1;
+    flex-direction: row;
     height: 100%;
 }
 
@@ -51,11 +51,7 @@ nav.body {
     order: 2;
 }
 
-#main>nav,
 #main>aside {
     flex: 0 0 20vw;
-}
-
-#main>aside {
     order: 1;
 }
