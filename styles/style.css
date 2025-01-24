@@ -1,0 +1,21 @@
+p {
+    color: red;
+  }
+
+  @font-face {
+    font-family: "Didact Gothic Regular";
+    src: url('../fonts/didact_gothic/DidactGothic-Regular.ttf');
+  }
+
+  @font-face {
+    font-family: "Space Mono Regular";
+    src: url('../fonts/space_mono/SpaceMono-Regular.ttf');
+  }
+
+  h1 {
+    text-transform: uppercase;
+  }
+
+  body {
+    font-family: "Didact Gothic Regular";
+  }
