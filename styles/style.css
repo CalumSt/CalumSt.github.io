@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 /* fonts */
 @font-face {
+=======
+p {
+    color: red;
+  }
+
+  @font-face {
+>>>>>>> parent of e518d99 (Attempt at responsive layout)
     font-family: "Didact Gothic Regular";
     src: url('../fonts/didact_gothic/DidactGothic-Regular.ttf');
-}
+  }
 
+<<<<<<< HEAD
 @font-face {
 @font-face {
     font-family: "Space Mono Regular";
@@ -16,9 +25,20 @@ h1 {
     text-transform: uppercase;
 }
 }
+=======
+  @font-face {
+    font-family: "Space Mono Regular";
+    src: url('../fonts/space_mono/SpaceMono-Regular.ttf');
+  }
 
-body {
+  h1 {
+    text-transform: uppercase;
+  }
+>>>>>>> parent of e518d99 (Attempt at responsive layout)
+
+  body {
     font-family: "Didact Gothic Regular";
+<<<<<<< HEAD
     color: black;
     margin: 0;
 }
@@ -59,3 +79,6 @@ nav.body {
     flex: 0 0 20vw;
     order: 1;
 }
+=======
+  }
+>>>>>>> parent of e518d99 (Attempt at responsive layout)
