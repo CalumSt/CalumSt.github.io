@@ -16,15 +16,34 @@ h1 {
 body {
     font-family: "Didact Gothic Regular";
     color: black;
+    margin: 0;
 }
 
 * {
     box-sizing: border-box;
-  }
+}
+
+nav {
+    background: #000000;
+    height: 100%;
+    width: 10%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 90%;
+    overflow-x: hidden;
+    writing-mode: sideways-lr;
+}
+
+nav.body {
+    font-family: "Didact Gothic Regular";
+    color: rgb(254, 254, 254);
+}
 
 #main {
     display: flex;
     flex: 1;
+    height: 100%;
 }
 
 #main>article {
@@ -35,16 +54,6 @@ body {
 #main>nav,
 #main>aside {
     flex: 0 0 20vw;
-}
-
-#main>nav {
-    background: #000000;
-    order: 3;
-}
-
-#main>nav.body {
-    font-family: "Didact Gothic Regular";
-    color: rgb(254, 254, 254);
 }
 
 #main>aside {
