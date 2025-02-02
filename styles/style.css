@@ -38,7 +38,7 @@ body, html {
     height: 100%;
 }
 
-.body {
+body {
     transition: background-color 0.3s, color 0.3s;
     background-color: white;
     color: black;
@@ -122,8 +122,8 @@ body, html {
     color: white;
 }
 
-/* Styles for the toggle container */
-.toggle-container {
+/* Make it clear that this is clickable */
+.sidebar.bottom {
     cursor: pointer;
 }
 
