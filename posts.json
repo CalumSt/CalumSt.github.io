@@ -1,0 +1,12 @@
+[
+  {
+    "title": "This is the title of the blog post.",
+    "filename": "posts/2025/july/test_post.html",
+    "date": "2025-07-12",
+    "brief description": "This is the description of the post, providing a brief introduction to the article. The following is a code snippet: --START CODE BLOCK--int main (const int argc, const char** argv) { return 0; }--END CODE BLOCK--This is an additional bit of text to the description.",
+    "tags": [
+      "tag1",
+      "tag2"
+    ]
+  }
+]

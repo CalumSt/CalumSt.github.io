@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+  <meta charset="utf-8" />
+  <title>cs.dev – Post Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Post description goes here" />
+  <link rel="canonical" href="https://calumst.github.io/posts/2025/july/your-post/" />
+
+  <link rel="icon" href="/favicon.ico" />
+  <link href="/styles/style.css" rel="stylesheet" />
+  <link href="/styles/prism.css" rel="stylesheet" />
+
+  <script src="/scripts/jquery-3.7.1.min.js"></script>
+  <script src="/scripts/prism.js"></script>
+  <script src="/scripts/gradient-fade.js"></script>
+</head>
+
+<body>
+  <!-- Inject header -->
+  <div id="header-container"></div>
+
+  <main id="main">
+    <div id="content">
+      <article class="blog-post">
+        <header>
+          <h1 class="entry-title">Post Title Goes Here</h1>
+          <p class="post-meta">Published: <time datetime="2025-07-13">July 13, 2025</time></p>
+        </header>
+
+        <section class="post-content">
+          <p>This is the opening paragraph of your blog post. You can write as many sections as you'd like here.</p>
+
+          <h2>Subheading Example</h2>
+          <p>Here is a code snippet:</p>
+
+          <pre><code class="language-js">
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+          </code></pre>
+
+          <p>More writing can go here.</p>
+        </section>
+
+        <footer class="post-tags">
+          <strong>Tags:</strong>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Web Dev</span>
+        </footer>
+      </article>
+    </div>
+  </main>
+
+  <!-- Inject footer -->
+  <div id="footer-container"></div>
+
+  <!-- Load header/footer shared nav -->
+  <script>
+    $(function () {
+      $('#header-container').load('/partials/header.html', function () {
+        $('#shared-nav-header').load('/partials/nav.html');
+      });
+
+      $('#footer-container').load('/partials/footer.html', function () {
+        $('#shared-nav-footer').load('/partials/nav.html');
+      });
+    });
+  </script>
+</body>
+
+</html>

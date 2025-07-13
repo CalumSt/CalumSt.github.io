@@ -1,1 +1,105 @@
-dev blog in progress!
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!-->
+<html class="no-js" lang="en"><!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <title>cs.dev</title>
+  <meta name="author" content="">
+
+  <meta name="description">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="canonical" href="https://calumst.github.io/">
+
+  <link href="/favicon.ico" rel="icon">
+  <link href="/styles/style.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/styles/prism.css" rel="stylesheet" />
+
+  <script src="/scripts/jquery-3.7.1.min.js"> </script>
+  <script src="/scripts/gradient-fade.js"></script>
+  <script src="/scripts/prism.js"></script>
+  <script src="/scripts/main.js"></script>
+</head>
+
+<body>
+  <div id="logo-container">
+    <a id="lrg-mark" href="calumst.github.io">
+      <svg fill="#000000" height="64px" width="64px" version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32.00 32.00" xml:space="preserve" stroke="#000000"
+        stroke-width="0.00032" transform="matrix(1, 0, 0, 1, 0, 0)">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC"
+          stroke-width="1.536"></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            d="M29,2H3C2.4,2,2,2.4,2,3v10v16c0,0.6,0.4,1,1,1h26c0.6,0,1-0.4,1-1V13V3C30,2.4,29.6,2,29,2z M6,6c0-0.6,0.4-1,1-1h10 c0.6,0,1,0.4,1,1v4c0,0.6-0.4,1-1,1H7c-0.6,0-1-0.4-1-1V6z M8,28H4V14h1v7c0,0.6,0.4,1,1,1h2V28z M15,28h-5v-6c0.6,0,1-0.4,1-1v-7h2 v7c0,0.6,0.4,1,1,1h1V28z M22,28h-5v-6h1c0.6,0,1-0.4,1-1v-7h2v7c0,0.6,0.4,1,1,1V28z M20,8c0-1.7,1.3-3,3-3s3,1.3,3,3s-1.3,3-3,3 S20,9.7,20,8z M28,28h-4v-6h2c0.6,0,1-0.4,1-1v-7h1V28z">
+          </path>
+        </g>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Injected Header -->
+  <div id="header-container"></div>
+
+  <div class="header-hamburger">
+    <button class="cmn-toggle-switch cmn-toggle-switch__htx">
+      <span>toggle menu</span>
+    </button>
+  </div>
+  <div id="main">
+    <div id="content">
+      
+      <div class="blog-index">
+        <!--- End Article --->
+
+
+
+        <div class="pagination">
+          <!---<a href="/blog/categories">Categories</a>--->
+
+
+          <!---<span class="page_number ">Page: 1 of 28</span>
+
+
+          <a href="/blog/2/" class="next">Older</a>--->
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- Injected Footer -->
+  <div id="footer-container"></div>
+
+<!-- Load header and footer -->
+<!-- Blog post rendering -->
+<script>
+  $(function () {
+    // Load header and footer
+    $('#header-container').load('/partials/header.html', function () {
+      $('#shared-nav-header').load('/partials/nav.html');
+    });
+    $('#footer-container').load('/partials/footer.html', function () {
+      $('#shared-nav-footer').load('/partials/nav.html');
+    });
+
+    // Load blog posts JSON and render
+    $.getJSON('/posts.json', function (posts) {
+      generateBlogEntries(posts, '.blog-index');
+    }).fail(function () {
+      console.error('Could not load blog post data.');
+    });
+  });
+</script>
+
+</body>
+
+</html>
