@@ -46,26 +46,29 @@ function escapeHtml(text) {
       .replace(/>/g, '&gt;');
 }
 
-function generatePaginationControls(
-    $paginationContainer, currentPage, totalPages) {
+function generatePaginationControls($paginationContainer, currentPage, totalPages) {
   $paginationContainer.empty();
 
-  if (totalPages <= 1) return;
-
-  if (currentPage > 1) {
-    $paginationContainer.append(
-        `<a href="#" class="prev" data-page="${currentPage - 1}">Newer</a>`);
-  }
-
+  // Always show the page number, even if there's only one page
   $paginationContainer.append(
-      `<span class="page_number">Page: ${currentPage} of ${totalPages}</span>`);
+    `<span class="page_number">Page: ${currentPage} of ${totalPages}</span>`
+  );
 
-  if (currentPage < totalPages) {
-    $paginationContainer.append(
-        `<a href="#" class="next" data-page="${currentPage + 1}">Older</a>`);
+  // Only show navigation links if there are multiple pages
+  if (totalPages > 1) {
+    if (currentPage > 1) {
+      $paginationContainer.prepend(
+        `<a href="#" class="prev" data-page="${currentPage - 1}">Newer</a>`
+      );
+    }
+
+    if (currentPage < totalPages) {
+      $paginationContainer.append(
+        `<a href="#" class="next" data-page="${currentPage + 1}">Older</a>`
+      );
+    }
   }
 }
-
 function generateBlogEntries(
     posts, containerSelector, page = 1, category = null, postsPerPage = 10) {
   const $container = $(containerSelector);
@@ -117,8 +120,9 @@ function generateBlogEntries(
     $container.append($article);
   });
 
-  const $pagination = $container.find('.pagination');
-  generatePaginationControls($pagination, page, totalPages);
+  const $pagination = $('<div class="pagination"></div>');
+  $container.append($pagination); // <- This adds pagination at the bottom of $container
+  generatePaginationControls($pagination, page, totalPages)
 
   Prism.highlightAll();
 }
