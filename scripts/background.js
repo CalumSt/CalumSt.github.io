@@ -55,15 +55,31 @@ function getCurrentGradient() {
   const topColor = interpolateColor(start.color1, end.color1, factor);
 
   // Gradient from topColor (top) to white (bottom)
-  return `linear-gradient(to bottom, ${topColor}, #ffffff)`;
+  return `linear-gradient(to bottom, ${topColor} 0%, ${topColor} 60%, #ffffff 100%)`;
 }
 
 function updateBackgroundGradient() {
   const gradient = getCurrentGradient();
-  $('body').css({
-    'background-image': gradient,
-    'transition': 'background-image 1s ease'
-  });
+
+  if (window.innerWidth <= 799) {
+    // Mobile: make gradient taller & fixed
+    $('body').css({
+      'background-image': gradient,
+      'background-repeat': 'no-repeat',
+      'background-attachment': 'fixed',
+      'background-size': '100% 200vh', // taller gradient on mobile
+      'transition': 'background-image 1s ease'
+    });
+  } else {
+    // Desktop: normal gradient style
+    $('body').css({
+      'background-image': gradient,
+      'background-repeat': 'repeat-x', // or 'no-repeat' if you prefer
+      'background-attachment': 'scroll',
+      'background-size': 'auto',
+      'transition': 'background-image 1s ease'
+    });
+  }
 }
 
 $(function() {
