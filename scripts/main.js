@@ -19,7 +19,7 @@ function parseDescriptionWithCodeBlocks(description) {
 
     // Add code block with detected language
     parts.push(
-      `<p><pre><code class="language-${lang}">${escapeHtml(code.trim())}</code></pre></p>`
+      `<pre><code class="language-${lang}">${escapeHtml(code.trim())}</code></pre>`
     );
 
     lastIndex = codeBlockRegex.lastIndex;
@@ -33,6 +33,11 @@ function parseDescriptionWithCodeBlocks(description) {
 
   return parts.join('\n');
 }
+function getQueryParam(name) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
+}
+
 
 // Simple HTML escape helper
 function escapeHtml(text) {
@@ -42,19 +47,51 @@ function escapeHtml(text) {
     .replace(/>/g, '&gt;');
 }
 
+function generatePaginationControls($paginationContainer, currentPage, totalPages) {
+  $paginationContainer.empty();
 
-function generateBlogEntries(posts, containerSelector) {
+  if (totalPages <= 1) return;
+
+  if (currentPage > 1) {
+    $paginationContainer.append(
+      `<a href="#" class="prev" data-page="${currentPage - 1}">Newer</a>`
+    );
+  }
+
+  $paginationContainer.append(
+    `<span class="page_number">Page: ${currentPage} of ${totalPages}</span>`
+  );
+
+  if (currentPage < totalPages) {
+    $paginationContainer.append(
+      `<a href="#" class="next" data-page="${currentPage + 1}">Older</a>`
+    );
+  }
+}
+
+function generateBlogEntries(posts, containerSelector, page = 1, category = null, postsPerPage = 10) {
   const $container = $(containerSelector);
-
   if (!$container.length) {
     console.warn('Container not found:', containerSelector);
     return;
   }
 
-  posts.forEach(post => {
-    const href = `/${post.filename.replace(/^\/?/, '')}/`;
+  $container.find("article").remove(); // Clear previous posts
 
-    // Use the improved parser to handle multiple code blocks & language detection
+  // Apply category filter if specified
+  let filteredPosts = category
+    ? posts.filter(post => (post.category || '').toLowerCase() === category.toLowerCase())
+    : posts;
+
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+  const startIndex = (page - 1) * postsPerPage;
+  const endIndex = startIndex + postsPerPage;
+  const currentPosts = filteredPosts.slice(startIndex, endIndex);
+
+  // Render blog posts
+  currentPosts.forEach(post => {
+    const filename = post.filename.replace(/^\/?/, '');
+    const href = filename.endsWith('.html') ? `/${filename}` : `/${filename}/`;
     const parsedDescriptionHtml = parseDescriptionWithCodeBlocks(post["brief description"] || '');
 
     const $article = $(`
@@ -79,6 +116,21 @@ function generateBlogEntries(posts, containerSelector) {
     $container.append($article);
   });
 
-    // Call Prism to highlight dynamically added code blocks
+  // Clear and regenerate pagination controls
+  $container.find('.pagination').remove();
+  const $pagination = $('<div class="pagination"></div>');
+
+  if (page > 1) {
+    $pagination.append(`<a href="#" data-page="${page - 1}">Newer</a>`);
+  }
+
+  $pagination.append(`<span class="page_number">Page: ${page} of ${totalPages}</span>`);
+
+  if (page < totalPages) {
+    $pagination.append(`<a href="#" data-page="${page + 1}">Older</a>`);
+  }
+
+  $container.append($pagination);
+
   Prism.highlightAll();
 }

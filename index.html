@@ -55,7 +55,7 @@
   </div>
   <div id="main">
     <div id="content">
-      
+
       <div class="blog-index">
         <!--- End Article --->
 
@@ -79,26 +79,50 @@
   <!-- Injected Footer -->
   <div id="footer-container"></div>
 
-<!-- Load header and footer -->
-<!-- Blog post rendering -->
-<script>
-  $(function () {
-    // Load header and footer
-    $('#header-container').load('/partials/header.html', function () {
-      $('#shared-nav-header').load('/partials/nav.html');
-    });
-    $('#footer-container').load('/partials/footer.html', function () {
-      $('#shared-nav-footer').load('/partials/nav.html');
-    });
+  <!-- Load header and footer -->
+  <!-- Blog post rendering -->
+  <script>
+    let allPosts = [];
 
-    // Load blog posts JSON and render
-    $.getJSON('/posts.json', function (posts) {
-      generateBlogEntries(posts, '.blog-index');
-    }).fail(function () {
-      console.error('Could not load blog post data.');
+    $(function () {
+      $('#header-container').load('/partials/header.html', function () {
+        $('#shared-nav-header').load('/partials/nav.html');
+      });
+      $('#footer-container').load('/partials/footer.html', function () {
+        $('#shared-nav-footer').load('/partials/nav.html');
+      });
+
+      $.getJSON('/posts.json', function (posts) {
+        allPosts = posts;
+
+        const page = parseInt(getQueryParam('page')) || 1;
+        const category = getQueryParam('category') || null;
+
+        generateBlogEntries(allPosts, '.blog-index', page, category);
+      });
+
+      $(document).on('click', '.pagination a', function (e) {
+        e.preventDefault();
+        const page = parseInt($(this).data('page'), 10);
+        const category = getQueryParam('category');
+
+        const newUrl = new URL(window.location.href);
+        newUrl.searchParams.set('page', page);
+        if (category) newUrl.searchParams.set('category', category);
+        history.pushState(null, '', newUrl);
+
+        generateBlogEntries(allPosts, '.blog-index', page, category);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // BONUS: Handle browser navigation
+      window.addEventListener('popstate', () => {
+        const page = parseInt(getQueryParam('page')) || 1;
+        const category = getQueryParam('category') || null;
+        generateBlogEntries(allPosts, '.blog-index', page, category);
+      });
     });
-  });
-</script>
+  </script>
 
 </body>
 
