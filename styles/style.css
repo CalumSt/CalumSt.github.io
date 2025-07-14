@@ -55,10 +55,10 @@ body {
   background-color: #FFFFFF;
   color: #000;
   /*font-family: "ll-unica77", "Helvetica Neue", Helvetica, Arial, sans-serif, sans-serif;*/
-  font-family: "League Spartan";
+  font-family: "League Spartan", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
-  background-image: url(/images/gradient.png);
+  background-image: none;
   background-repeat: repeat-x;
   background-position: 0px 0px;
   max-width: none;
@@ -167,10 +167,7 @@ blockquote {
 header#banner {
   width: 100%;
   z-index: 999;
-  background-image: url(/images/gradient.png);
-  background-repeat: repeat-x;
-  background-position: 0px 0px;
-  background-color: #FFFFFF; }
+  background: transparent; }
   header#banner.stuck {
     position: fixed;
     top: -100px; }

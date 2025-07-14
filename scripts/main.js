@@ -117,20 +117,10 @@ function generateBlogEntries(posts, containerSelector, page = 1, category = null
   });
 
   // Clear and regenerate pagination controls
-  $container.find('.pagination').remove();
   const $pagination = $('<div class="pagination"></div>');
-
-  if (page > 1) {
-    $pagination.append(`<a href="#" data-page="${page - 1}">Newer</a>`);
-  }
-
-  $pagination.append(`<span class="page_number">Page: ${page} of ${totalPages}</span>`);
-
-  if (page < totalPages) {
-    $pagination.append(`<a href="#" data-page="${page + 1}">Older</a>`);
-  }
-
   $container.append($pagination);
+  generatePaginationControls($pagination, page, totalPages);
+
 
   Prism.highlightAll();
 }
