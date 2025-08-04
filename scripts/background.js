@@ -1,10 +1,8 @@
 const keyTimes = [
-  { time: 5, color1: '#FF9A9E', color2: '#FAD0C4' },    // Sunrise start (5am)
-  { time: 8, color1: '#A1C4FD', color2: '#C2E9FB' },    // Day start (8am)
-  { time: 17, color1: '#FBC7A4', color2: '#F6D365' },   // Sunset start (5pm)
-  { time: 20, color1: '#FAD0C4', color2: '#FF9A9E' },   // Night start (8pm)
-  { time: 24, color1: '#a6ffd7', color2: '#78d6ff' },   // Midnight (12am)
-  { time: 0, color1: '#92ff92', color2: '#ffee33' }     // Midnight (0am) - loops smoothly
+  { time: 5, color1: '#FF9A9E'},    // Sunrise start (5am)
+  { time: 11, color1: '#a6ffd7'},    // Peak Day (11am)
+  { time: 17, color1: '#A1C4FD'},   // Evening start (5pm)
+  { time: 23, color1: '#ffdb57ff'},   // Night start (11pm)
 ];
 
 function hexToRgb(hex) {
